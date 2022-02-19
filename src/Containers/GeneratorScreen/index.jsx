@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import { ThemeContext } from "../../Context/ThemeContext/";
 import styled, { css } from "styled-components";
-import './index.scss'
+import "./index.scss";
+
 const GeneratorScreenStyled = styled.div`
   background-color: #ffffff;
   color: #3d9b51;
@@ -17,8 +18,12 @@ const GeneratorScreenStyled = styled.div`
 
 export const GeneratorScreen = ({ children }) => {
   const { isDarkTheme } = useContext(ThemeContext);
+
   return (
-    <GeneratorScreenStyled isDarkTheme={isDarkTheme} className='GeneratorScreen'>
+    <GeneratorScreenStyled
+      isDarkTheme={isDarkTheme}
+      className="GeneratorScreen"
+    >
       {children}
     </GeneratorScreenStyled>
   );

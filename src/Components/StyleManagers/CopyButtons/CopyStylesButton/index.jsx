@@ -27,7 +27,7 @@ export const CopyStylesButton = () => {
   return (
     <CopyToClipboard text={styles.outputFormat === 'HEX' ? HEXstyles : RGBstyles}>
       <StyleButton
-        isCopyLink={true}
+        isCopyButton={true}
         onClick={() => {
           copiedAlert();
         }}

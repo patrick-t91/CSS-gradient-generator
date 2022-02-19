@@ -1,14 +1,27 @@
 import { createContext, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 export const StylesContext = createContext();
 
 export const StylesContextProvider = ({ children }) => {
+  //Destructurar parametros de la url, para luego recibirlos y adecuarlos mediante regExp.
+  let { search } = useLocation();
+  let querySearch = new URLSearchParams(search);
+
+  let gt = querySearch.get("gt");
+  let dt = querySearch.get("dt");
+  let c1 = querySearch.get("c1");
+  let c2 = querySearch.get("c2");
+
+  if (search.length > 0) {
+    dt = dt.replace(/%20/, " ");
+  }
 
   const [styles, setStyles] = useState({
-    gradientType: "linear",
-    directionType: "top left",
-    colorOne: "#000000",
-    colorTwo: "#ffffff",
+    gradientType: search.length > 0 ? gt : "linear",
+    directionType: search.length > 0 ? dt : "top left",
+    colorOne: search.length > 0 ? `#${c1}` : "#000000",
+    colorTwo: search.length > 0 ? `#${c2}` : "#ffffff",
     outputFormat: "HEX",
   });
 

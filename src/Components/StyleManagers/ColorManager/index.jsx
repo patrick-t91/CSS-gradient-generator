@@ -9,6 +9,7 @@ const StyledInput = styled.input.attrs({
 })`
   background-color: ${({ color }) => color};
   margin: 10px;
+  cursor: pointer;
 `;
 
 export const ColorManager = () => {

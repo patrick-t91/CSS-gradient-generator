@@ -23,19 +23,19 @@ const StyledButton = styled.button`
     css`
       background-color: #b2b9b2;
     `}
-  ${({ isCopyLink }) =>
-    isCopyLink &&
+  ${({ isCopyButton }) =>
+    isCopyButton &&
     css`
       width: 200px;
       align-self: center;
-      margin: 60px 0;
+      margin: 10px 0;
       &:hover {
         background-color: #b2b9b2
       }
     `}
 `;
 
-export const StyleButton = ({ children, onClick, isSelected, isCopyLink }) => {
+export const StyleButton = ({ children, onClick, isSelected, isCopyButton }) => {
   const { isDarkTheme } = useContext(ThemeContext);
 
   return (
@@ -43,7 +43,7 @@ export const StyleButton = ({ children, onClick, isSelected, isCopyLink }) => {
       onClick={onClick}
       isDarkTheme={isDarkTheme}
       isSelected={isSelected}
-      isCopyLink={isCopyLink}
+      isCopyButton={isCopyButton}
     >
       {children}
     </StyledButton>
